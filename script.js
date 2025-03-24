@@ -23,3 +23,10 @@ function operate(a, b, o){
             return "Invalid";
     }
 }
+
+const display = document.querySelector(".display");
+
+const clear = document.querySelector("#clear");
+clear.addEventListener("click", () => {
+    display.textContent='';
+});
