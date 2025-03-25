@@ -37,10 +37,12 @@ const numButtons = document.querySelector(".buttons .nums");
 numButtons.addEventListener("click", (e) => {
     if(!str.includes(e.target.textContent) && display.textContent.length<8){
         let t;
-        t = e.target.textContent;
-        if(!x) x=+t;
-        else y=+t;
-        display.textContent+=t;
+        if(e.target.tagName==="BUTTON"){
+            t = e.target.textContent;
+            if(!x) x=+t;
+            else y=+t;
+            display.textContent+=t;
+        }
     }
 })
 
@@ -54,10 +56,17 @@ opButtons.addEventListener("click", (e) => {
 
 const equals = document.querySelector("#equals");
 equals.addEventListener("click", () => {
+    console.log(`x: ${x}\ny: ${typeof y}\nop: ${op}`);
     if(x && y && op){
-        let res = operate(x,y,op);
-        res = +res.toFixed(2);
-        display.textContent = res;
-        x=res;
+        if(y==0 && op=="/"){
+            alert("Invalid!");
+        }
+        else {
+            let res;
+            res = operate(x,y,op);
+            res = +res.toFixed(2);
+            x=res;
+            display.textContent = res;            
+        }
     }
 })
