@@ -23,6 +23,7 @@ body {
     height: 15%;
     font-family: monospace;
     font-size: 80px;
+    font-size: auto;
     margin-bottom: 5px;
 }
 
